@@ -1,5 +1,8 @@
 package edu.neu.coe.info6205.sort.counting;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class LSDStringSort {
 
 //    private final int ASCII_RANGE = 256;
@@ -40,12 +43,12 @@ public class LSDStringSort {
      * @param from         This is the starting index from which sorting operation will begin
      * @param to           This is the ending index up until which sorting operation will be continued
      */
-    private static void charSort(String[] names, String[] strArr, int charPosition, int from, int to) {
+    private static void charSort(String[] strArr, int charPosition, int from, int to) {
         int ASCII_RANGE = 256;
 
         int[] count = new int[ASCII_RANGE + 2];
         String[] result = new String[strArr.length];
-        String[] resultName = new String[strArr.length];
+//        String[] resultName = new String[strArr.length];
 
         for (int i = from; i <= to; i++) {
             int c = charAsciiVal(strArr[i], charPosition);
@@ -59,13 +62,13 @@ public class LSDStringSort {
         // distribute
         for (int i = from; i <= to; i++) {
             int c = charAsciiVal(strArr[i], charPosition);
-            result[count[c + 1]] = strArr[i];
-            resultName[count[c + 1]++] = names[i];
+            result[count[c + 1]++] = strArr[i];
+//            resultName[count[c + 1]++] = names[i];
         }
 
         // copy back
         if (to + 1 - from >= 0) System.arraycopy(result, 0, strArr, from, to + 1 - from);
-        if (to + 1 - from >= 0) System.arraycopy(resultName, 0, names, from, to + 1 - from);
+//        if (to + 1 - from >= 0) System.arraycopy(resultName, 0, names, from, to + 1 - from);
     }
 
     /**
@@ -75,10 +78,10 @@ public class LSDStringSort {
      * @param from   This is the starting index from which sorting operation will begin
      * @param to     This is the ending index up until which sorting operation will be continued
      */
-    public static void sort(String[] names, String[] strArr, int from, int to) {
+    public static void sort(String[] strArr, int from, int to) {
         int maxLength = findMaxLength(strArr);
         for (int i = maxLength - 1; i >= 0; i--)
-            charSort(names, strArr, i, from, to);
+            charSort(strArr, i, from, to);
     }
 
     /**
@@ -86,22 +89,47 @@ public class LSDStringSort {
      *
      * @param strArr It contains an array of String on which LSD sort needs to be performed
      */
-    public static void sort(String[] strArr, String[] names) {
-        sort(names, strArr, 0, strArr.length - 1);
+    public static void sort(String[] strArr) {
+        sort(strArr, 0, strArr.length - 1);
+    }
+
+    public void LSDStringSortTest(int n) {
+        String filePath = "/Users/chenpeng/Documents/GitHub/INFO6205-Final-ZCL/shuffledChinese.txt";
+        String[] ChineseWords = ReadTxt.readTxtFile(filePath,n);
+        Pinyin PinYin = new Pinyin();
+        String[] pinyin = PinYin.getPinYinWithTone(ChineseWords);
+
+        LSDStringSort.sort(pinyin);
+
+        Map<String, ArrayList> map = PinYin.getMap();
+        String[] result = new String[pinyin.length];
+        int index = 0;
+
+        for(String pinyinword : pinyin){
+
+            if(map.containsKey(pinyinword)){
+                ArrayList<String> newList = map.get(pinyinword);
+
+                for(String str: newList){
+                    result[index++] = str;
+                }
+
+                map.remove(pinyinword);
+            }
+
+        }
+
+//        for (int i = 0; i <= 100; i++) {
+//            System.out.println(result[i]);
+//            System.out.println(pinyin[i]);
+//        }
+
+        WriteTxt wt = new WriteTxt();
+        wt.writeTxt("LSDStringSorted.txt", result, 1000);
     }
 
     public static void main(String[] args) {
-        String filePath = "/Users/chenpeng/Documents/GitHub/INFO6205-Final-ZCL/shuffledChinese.txt";
-        String[] ChineseWords = ReadTxt.readTxtFile(filePath,999998);
-        String[] pinyin = Pinyin.getPinYinWithTone(ChineseWords);
-
-        LSDStringSort.sort(pinyin, ChineseWords);
-
-        for (int i = 0; i <= 100; i++) {
-            System.out.println(ChineseWords[i]);
-            System.out.println(pinyin[i]);
-        }
-
-//        System.out.println(charAsciiVal("asd",0));
+        LSDStringSort test = new LSDStringSort();
+        test.LSDStringSortTest(999998);
     }
 }

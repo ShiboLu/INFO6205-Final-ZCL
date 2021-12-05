@@ -6,10 +6,13 @@ package edu.neu.coe.info6205.sort.linearithmic;
 import edu.neu.coe.info6205.sort.BaseHelper;
 import edu.neu.coe.info6205.sort.Helper;
 import edu.neu.coe.info6205.sort.SortWithHelper;
+import edu.neu.coe.info6205.sort.counting.*;
 import edu.neu.coe.info6205.util.Config;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 /**
  * Sorter which delegates to Timsort via Arrays.sort.
@@ -46,4 +49,45 @@ public class TimSort<X extends Comparable<X>> extends SortWithHelper<X> {
     }
 
     public static final String DESCRIPTION = "Timsort";
+
+    public void TimSortTest(int n) throws IOException {
+        String filePath = "/Users/chenpeng/Documents/GitHub/INFO6205-Final-ZCL/shuffledChinese.txt";
+        String[] ChineseWords = ReadTxt.readTxtFile(filePath,n);
+        Pinyin PinYin = new Pinyin();
+        String[] pinyin = PinYin.getPinYinWithTone(ChineseWords);
+
+        TimSort ts = new TimSort();
+        ts.sort(pinyin, 0, pinyin.length);
+
+        Map<String, ArrayList> map = PinYin.getMap();
+        String[] result = new String[pinyin.length];
+        int index = 0;
+
+        for(String pinyinword : pinyin){
+
+            if(map.containsKey(pinyinword)){
+                ArrayList<String> newList = map.get(pinyinword);
+
+                for(String str: newList){
+                    result[index++] = str;
+                }
+
+                map.remove(pinyinword);
+            }
+
+        }
+
+//        for (int i = 0; i <= 100; i++) {
+//            System.out.println(result[i]);
+//            System.out.println(pinyin[i]);
+//        }
+
+        WriteTxt wt = new WriteTxt();
+        wt.writeTxt("TimSorted.txt", result, 1000);
+    }
+
+    public static void main(String[] args) throws IOException {
+        TimSort test = new TimSort();
+        test.TimSortTest(999998);
+    }
 }

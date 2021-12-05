@@ -3,7 +3,22 @@ package edu.neu.coe.info6205.sort.counting;
 import edu.neu.coe.info6205.sort.counting.ReadTxt;
 import net.sourceforge.pinyin4j.PinyinHelper;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Pinyin {
+
+    private static Map<String, ArrayList> map = new HashMap<>();
+
+    public static void setMap(Map<String, ArrayList> newmap) {
+        map = newmap;
+    }
+
+    public static Map<String, ArrayList> getMap() {
+        return map;
+    }
+
     public static String[] getPinYinWithTone(String[] ChineseWords) {
         String[] result = new String[ChineseWords.length];
         int count = 0;
@@ -25,7 +40,18 @@ public class Pinyin {
 
                 if (stringBuffer.length() > 0) {
                     result[count] = stringBuffer.toString();
+                    Map<String, ArrayList> newMap = new HashMap<>();
+                    newMap = getMap();
+                    if(newMap.containsKey(result[count])) {
+                        newMap.get(result[count]).add(ChineseWord);
+                    } else{
+                        ArrayList<String> newList = new ArrayList<>();
+                        newList.add(ChineseWord);
+                        newMap.put(result[count], newList);
+                    }
+                    setMap(newMap);
                 }
+
             }
 
             count++;

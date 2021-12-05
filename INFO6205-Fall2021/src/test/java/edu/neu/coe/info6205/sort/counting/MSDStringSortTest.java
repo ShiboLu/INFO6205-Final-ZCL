@@ -22,8 +22,8 @@ import static org.junit.Assert.assertEquals;
 
 public class MSDStringSortTest {
 
-    String[] input = "she sells seashells by the seashore the shells she sells are surely seashells".split(" ");
-    String[] expected = "are by seashells seashells seashore sells sells she she shells surely the the".split(" ");
+    String[] input = "she 1 sells sea2shells by the seashore the shells she sells are surely seashells".split(" ");
+    String[] expected = "1 are by sea2shells seashells seashore sells sells she she shells surely the the".split(" ");
 
     @Test
     public void sort() {

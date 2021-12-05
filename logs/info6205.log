@@ -1,0 +1,33 @@
+2021-12-03 22:14:55 INFO  PureHuskySort - PureHuskySort.main: sorting 50000 random alphabetic ASCII words 10000 times
+2021-12-03 22:17:13 INFO  PureHuskySort - PureHuskySort.main: finished
+2021-12-04 00:30:54 DEBUG Config - Config.get(sortbenchmark, version) = 1.0.0 (sortbenchmark)
+2021-12-04 00:30:54 INFO  SortBenchmark - SortBenchmark.main: 1.0.0 (sortbenchmark) with word counts: []
+2021-12-04 00:30:54 WARN  SortBenchmark - No word counts specified on the command line
+2021-12-04 00:30:54 INFO  Benchmark_Timer - Begin run: intArraysorter with 100 runs
+2021-12-04 00:30:54 INFO  TimeLogger - Raw time per run (mSec):  .00
+2021-12-04 00:30:54 INFO  TimeLogger - Normalized time per run (n log n):  .00
+2021-12-04 00:30:54 INFO  Benchmark_Timer - Begin run: integerArraysorter with 100 runs
+2021-12-04 00:30:54 INFO  TimeLogger - Raw time per run (mSec):  .00
+2021-12-04 00:30:54 INFO  TimeLogger - Normalized time per run (n log n):  .00
+2021-12-04 00:30:54 INFO  SortBenchmark - Beginning String sorts
+2021-12-04 00:30:54 INFO  SortBenchmarkHelper - Testing with words: 2,998 from 3000-common-words.txt
+2021-12-04 00:30:54 INFO  SortBenchmark - Testing pure sorts with 5,000 runs of sorting 4,000 words
+2021-12-04 00:30:54 DEBUG Config - Config.get(benchmarkstringsorters, puresystemsort) = false
+2021-12-04 00:30:54 DEBUG Config - Config.get(benchmarkstringsorters, mergesort) = false
+2021-12-04 00:30:54 DEBUG Config - Config.get(benchmarkstringsorters, quicksort3way) = false
+2021-12-04 00:30:54 DEBUG Config - Config.get(benchmarkstringsorters, quicksort) = true
+2021-12-04 00:30:54 DEBUG Config - Config.get(helper, instrument) = false
+2021-12-04 00:30:54 INFO  SorterBenchmark - run: sort 4,000 elements using SorterBenchmark on class java.lang.String from 2,998 total elements and 5,000 runs using sorter: QuickSort dual pivot
+2021-12-04 00:30:54 INFO  Benchmark_Timer - Begin run: Helper for QuickSort dual pivot with 4000 elements with 5,000 runs
+2021-12-04 00:30:54 INFO  TimeLogger - Raw time per run (mSec):  .00
+2021-12-04 00:30:54 INFO  TimeLogger - Normalized time per run (n log n):  .00
+2021-12-04 00:30:54 DEBUG Config - Config.get(benchmarkstringsorters, introsort) = false
+2021-12-04 00:30:54 DEBUG Config - Config.get(benchmarkstringsorters, insertionsort) = false
+2021-12-04 00:30:54 INFO  SortBenchmarkHelper - Testing with words: 24,017 from zho-simp-tw_web_2014_10K-sentences.txt
+2021-12-04 00:30:54 INFO  SortBenchmark - Testing pure sorts with 1,000 runs of sorting 5,000 words
+2021-12-04 00:30:54 INFO  SorterBenchmark - run: sort 5,000 elements using SorterBenchmark on class java.lang.String from 24,017 total elements and 1,000 runs using sorter: QuickSort dual pivot
+2021-12-04 00:30:54 INFO  Benchmark_Timer - Begin run: Helper for QuickSort dual pivot with 5000 elements with 1,000 runs
+2021-12-04 00:30:54 INFO  TimeLogger - Raw time per run (mSec):  .00
+2021-12-04 00:30:54 INFO  TimeLogger - Normalized time per run (n log n):  .00
+2021-12-04 00:30:54 INFO  SortBenchmark - Beginning LocalDateTime sorts
+2021-12-04 00:30:54 DEBUG Config - Config.get(benchmarkdatesorters, timsort) = false
