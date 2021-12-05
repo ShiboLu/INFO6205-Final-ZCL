@@ -1,12 +1,11 @@
 /*
   (c) Copyright 2018, 2019 Phasmid Software
  */
-package edu.neu.coe.info6205.sort.linearithmic;
+package edu.neu.coe.info6205.sort.finalProject;
 
 import edu.neu.coe.info6205.sort.BaseHelper;
 import edu.neu.coe.info6205.sort.Helper;
 import edu.neu.coe.info6205.sort.SortWithHelper;
-import edu.neu.coe.info6205.sort.finalProject.*;
 import edu.neu.coe.info6205.util.Config;
 
 import java.io.IOException;
