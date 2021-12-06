@@ -57,7 +57,11 @@ Code: `INFO6205-Final-ZCL/INFO6205-Fall2021/src/main/java/edu/neu/coe/info6205/s
 ## Outputs:
 
 MSD radix sort: `INFO6205-Final-ZCL/MSDStringSorted.txt`
+
 LSD radix sort: `INFO6205-Final-ZCL/LSDStringSorted.txt`
+
 Dual-pivot Quicksort: `INFO6205-Final-ZCL/DualPivotQuickSorted.txt`
+
 Huskysort: `INFO6205-Final-ZCL/PureHuskySorted.txt`
+
 Timsort: `INFO6205-Final-ZCL/TimSorted.txt`
