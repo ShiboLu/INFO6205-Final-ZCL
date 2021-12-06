@@ -13,7 +13,7 @@ This is the Final Project for INFO 6205.
 `INFO6205-Final-ZCL/Final Project Report-INFO6205-PengChen-FengyiZhang-ShiboLu.pdf`
 
 # Paper Reading
-`INFO6205-Final-ZCL/Paper Description-INFO 6205 Fall 2021.docx`
+`INFO6205-Final-ZCL/Paper Description-INFO 6205 Fall 2021.pdf`
 
 # Code File Path:
 
